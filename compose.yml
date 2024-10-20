@@ -1,0 +1,10 @@
+services:
+    cubetrek-uploader:
+        environment:
+            - EMAIL=your_email@example.com
+            - PASSWORD=your_password
+            - SERVER_URL=https://cubetrek.com  #selfhosted is also possible like http://10.0.1.7:3939
+        volumes:
+            - ./volumes/cubetrek_uploader/uploads:/app/uploads
+            - ./volumes/cubetrek_uploader/alreadyimported:/app/alreadyimported
+        image: cubetrek-uploader
