@@ -1,0 +1,15 @@
+services:
+    cubetrek-uploader:
+        environment:
+            - EMAIL=CUBETREK_USER_EMAIL
+            - PASSWORD=CUBETREKPASS
+            - SERVER_URL=https://cubetrek.com  #selfhosted is also possible like http://10.0.1.7:3939
+            - CHALLENGES_ENABLED=false #set to "true" to enable this for auto challenges upload
+            - CHALLENGES_USER=user@example.org
+            - CHALLENGES_URL=https://challenges-api.example.org
+            - CHALLENGES_PASSWORD=USERPASS
+        volumes:
+            - ./volumes/cubetrek_uploader/uploads:/app/uploads
+            - ./volumes/cubetrek_uploader/alreadyimported:/app/alreadyimported
+        image: ghcr.io/pmffromspace/cubetrek_uploader:latest
+        container_name: cubetrek-uploader
